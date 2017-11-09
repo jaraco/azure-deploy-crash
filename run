@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd $(dirname "${BASH_SOURCE[0]}")
+pip install -t libs -r requirements.txt --upgrade
+export PYTHONPATH=libs
+python3 -m newrelic.admin run-program python3 -m http.server $PORT
